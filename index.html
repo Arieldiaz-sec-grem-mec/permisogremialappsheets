@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permiso Gremial</title>
+    <style>
+        /* Estilo original ajustado */
+        body {
+            font-family: "Georgia", serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            font-size: 13pt;
+            padding: 72pt; /* Márgenes internos de la nota */
+            margin-top: 4cm;  /* Margen superior de 4 cm */
+        }
+
+        .c16 {
+            text-align: center;
+            font-size: 29pt;
+            text-decoration: underline;
+            font-family: "Georgia";
+        }
+
+        .c4 {
+            font-size: 13pt;
+            text-align: justify;
+        }
+
+        .c9 {
+            font-size: 17pt;
+        }
+
+        .c3 {
+            text-align: center;
+        }
+
+        .c5 {
+            text-align: center;
+            font-size: 13pt;
+        }
+
+        .c1 {
+            font-size: 13pt;
+        }
+
+        /* Estilo para poner en negrita los datos */
+        .negrita {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="c3">
+            <span class="c16">PERMISO GREMIAL</span>
+        </p>
+        <p class="c3">
+            <span class="c4">Ciudad Autónoma de Buenos Aires, <span id="fechaSolicitud" class="negrita"></span></span>
+        </p>
+        <p class="c9"><span>De: Rama Remolques Mecánicos</span></p>
+        <p class="c9"><span>Cro.: Avendaño Héctor</span></p>
+        <p class="c9"><span>A: <span id="empresa" class="negrita"></span></span></p>
+        <p class="c9"><span>_____________________________________________</span></p>
+        <p class="c4">De nuestra mayor consideración:</p>
+        <p class="c4">
+            Tenemos el agrado de dirigirnos a Ud., con la finalidad de comunicarle que el/la compañero/a, 
+            <span id="nombre" class="negrita"></span>, no asistirá a su labor habitual durante el/los día/s 
+            <span id="fechaPermiso" class="negrita"></span><span id="fechaPermiso2" class="negrita"></span>, por estar afectado/a a tareas en el área Gremial de esta Asociación Sindical.
+        </p>
+        <p class="c4">
+            Con tal motivo, requerimos de su amabilidad tenga bien reconocer los jornales conjuntamente con los 
+            adicionales que se aplican según lo estipulado en nuestro C.C.T. 40/89.
+        </p>
+        <p class="c5">Sin otro particular, saludamos a Ud. muy atentamente.</p>
+    </div>
+    <script>
+        // Leer parámetros de la URL
+        const params = new URLSearchParams(window.location.search);
+
+        // Asignar valores a los elementos correspondientes y hacer que estén en negrita
+        document.getElementById("nombre").textContent = params.get("nombre") || "No especificado";
+        document.getElementById("empresa").textContent = params.get("empresa") || "No especificada";
+        document.getElementById("fechaPermiso").textContent = params.get("fechaPermiso") || "No especificada";
+        document.getElementById("fechaPermiso2").textContent = params.get("fechaPermiso2") ? ` y ${params.get("fechaPermiso2")}` : "";
+        document.getElementById("fechaSolicitud").textContent = params.get("fechaSolicitud") || "No especificada";
+    </script>
+</body>
+</html>
